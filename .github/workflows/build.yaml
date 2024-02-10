@@ -20,6 +20,12 @@ jobs:
           toolchain: stable
           override: true
 
+      - name: Install Protoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y protobuf-compiler
+          protoc --version 
+
       - name: Build and Test
         uses: actions-rs/cargo@v1
         with:
